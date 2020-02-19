@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹窗插件</title>
+  <link rel="stylesheet" href="./src/index.css">
+</head>
+<body>
+  <button id="btnInfo">提示</button>
+  <button id="seccess">成功的提示</button>
+  <button id="warn">警告有延迟</button>
+  <button id="error">错误有回调</button>
+
+
+  <script src="./src/index.js"></script>
+
+  <script>
+    btnInfo.onclick = function () {
+      message("一个简单的弹窗");
+    }
+    seccess.onclick = function () {
+      message("成功喽", 'success');
+    }
+    warn.onclick = function () {
+      message({
+        content:"警告有延迟",
+        type: "warn",
+        duartion : 3,
+      });
+    }
+    error.onclick = function () {
+      message({
+        content:"错误有回调",
+        type: "error",
+        duartion : 2,
+        onClose: function () {
+          console.log("关闭喽");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
